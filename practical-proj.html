@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<title>Practical Machine Learning Project</title>
+<title>mode        : selfcontained # {standalone, draft}</title>
 
 <script type="text/javascript">
 window.onload = function() {
@@ -201,6 +201,22 @@ hr {
 </head>
 
 <body>
+<hr/>
+
+<p>title       : Practical Machine Learning Project
+subtitle    : 
+author      : Carlo Bono
+job         : Johns Hopkins Bloomberg School of Public Health
+logo        : bloomberg_shield.png
+framework   : io2012        # {io2012, html5slides, shower, dzslides, &hellip;}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow   # 
+url:
+  lib: ../../libraries
+  assets: ../../assets</p>
+
+<h2>mode        : selfcontained # {standalone, draft}</h2>
+
 <h1>Practical Machine Learning Project</h1>
 
 <h2>Description</h2>
@@ -236,7 +252,16 @@ dim(training)
 <p>We first remove near zero variance columns:</p>
 
 <pre><code class="r">library(caret)
-rem &lt;- nearZeroVar(training)
+</code></pre>
+
+<pre><code>## Warning: package &#39;caret&#39; was built under R version 3.1.3
+</code></pre>
+
+<pre><code>## Loading required package: lattice
+## Loading required package: ggplot2
+</code></pre>
+
+<pre><code class="r">rem &lt;- nearZeroVar(training)
 length(rem)
 </code></pre>
 
@@ -271,7 +296,16 @@ validate &lt;- trainingknn[-subset,]
 Moreover, cross-validation isn&#39;t really necessary in the case of RF.</p>
 
 <pre><code class="r">library(randomForest)
-mod &lt;- randomForest(classe~., data=train, importance=TRUE, ntrees=5)
+</code></pre>
+
+<pre><code>## Warning: package &#39;randomForest&#39; was built under R version 3.1.3
+</code></pre>
+
+<pre><code>## randomForest 4.6-10
+## Type rfNews() to see new features/changes/bug fixes.
+</code></pre>
+
+<pre><code class="r">mod &lt;- randomForest(classe~., data=train, importance=TRUE, ntrees=5)
 </code></pre>
 
 <hr/>
@@ -295,7 +329,7 @@ confusionMatrix(resval,validate$classe)$overall[1]
 </code></pre>
 
 <pre><code>##  Accuracy 
-## 0.9864899
+## 0.9892939
 </code></pre>
 
 <hr/>
