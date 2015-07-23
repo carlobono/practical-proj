@@ -1,17 +1,4 @@
----
-title       : Practical Machine Learning Project
-subtitle    : 
-author      : Carlo Bono
-job         : Johns Hopkins Bloomberg School of Public Health
-logo        : bloomberg_shield.png
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
-highlighter : highlight.js  # {highlight.js, prettify, highlight}
-hitheme     : tomorrow   # 
-url:
-  lib: ../../libraries
-  assets: ../../assets
-mode        : selfcontained # {standalone, draft}
----
+﻿---
 
 # Practical Machine Learning Project
 
@@ -125,7 +112,7 @@ confusionMatrix(resval,validate$classe)$overall[1]
 
 ```
 ##  Accuracy 
-## 0.9864899
+## 0.9872547
 ```
 
 
