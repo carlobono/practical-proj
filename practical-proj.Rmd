@@ -1,4 +1,4 @@
----
+﻿---
 title       : Practical Machine Learning Project
 subtitle    : 
 author      : Carlo Bono
