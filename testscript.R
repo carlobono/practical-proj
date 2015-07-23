@@ -52,3 +52,5 @@ pml_write_files = function(x){
     write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
   }
 }
+
+pml_write_files(as.character(resfinal))

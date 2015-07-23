@@ -28,7 +28,7 @@ The training data for this project are available here:
 The test data are available here:
 [https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv]
 
-We can then look at the number of instances and features: 
+We have a look at the number of instances and features: 
 
 
 ```r
@@ -73,6 +73,8 @@ pre <- preProcess(training[,ids], method=c('knnImpute'))
 trainingknn <- predict(pre, training[,ids])
 trainingknn$classe <- training$classe
 ```
+
+We keep near-zero variance identifiers (rem) and the preprocessing configuration (ids, pre) for later use (testing).
 
 Then we split in a training and a validation set:
 
@@ -122,8 +124,8 @@ confusionMatrix(resval,validate$classe)$overall[1]
 ```
 
 ```
-## Accuracy 
-## 0.989039
+##  Accuracy 
+## 0.9864899
 ```
 
 
@@ -132,6 +134,7 @@ confusionMatrix(resval,validate$classe)$overall[1]
 ## Testset
 
 We must perform the same transformations for the test set (only numeric columns, KNN replacement for missing).
+
 
 ```r
 testing<- testing[-rem]
@@ -144,6 +147,21 @@ resfinal
 ##  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 
 ##  B  A  B  A  A  E  D  B  A  A  B  C  B  A  E  E  A  B  B  B 
 ## Levels: A B C D E
+```
+
+And finally we write output as described
+
+
+```r
+pml_write_files = function(x){
+  n = length(x)
+  for(i in 1:n){
+    filename = paste0("problem_id_",i,".txt")
+    write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
+  }
+}
+
+pml_write_files(as.character(resfinal))
 ```
 
 
